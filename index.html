@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElektroServis | Elektr va elektron servis xizmatlari</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loader-particle"></div>
+        <div class="loader-text">ElektroServis yuklanmoqda...</div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-progress"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo">Elektro<span>Servis</span></a>
+            <ul class="nav-menu">
+                <li><a href="#about">Biz Haqimizda</a></li>
+                <li><a href="#services">Xizmatlar</a></li>
+                <li><a href="#why-us">Nima Uchun Biz?</a></li>
+                <li><a href="#contact">Aloqa</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bolt"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero" id="hero">
+            <canvas id="hero3d"></canvas>
+            <div class="hero-content">
+                <h1 class="hero-title" id="mainTitle">ElektroServis</h1>
+                <p class="hero-subtitle">Elektr va elektron servis xizmatlari</p>
+                <div class="hero-icons">
+                    <div class="icon-3d"><i class="fas fa-bolt"></i></div>
+                    <div class="icon-3d"><i class="fas fa-plug"></i></div>
+                    <div class="icon-3d"><i class="fas fa-microchip"></i></div>
+                    <div class="icon-3d"><i class="fas fa-tools"></i></div>
+                </div>
+                <a href="#contact" class="btn-neon">Bog‘lanish <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="scroll-down">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="section-title">Biz <span>Haqimizda</span></h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="about-text">
+                            <h3>ElektroServis</h3>
+                            <p>"ElektroServis – Akmalbek Suyarov rahbarligida professional elektr va elektron xizmatlarni taqdim etuvchi ishonchli korxona. Biz sifat, xavfsizlik va zamonaviy texnologiyalarni ustuvor deb bilamiz."</p>
+                        </div>
+                    </div>
+                    <div class="about-3d" id="about3d">
+                        <!-- 3D Panel will be inserted here by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section class="services" id="services">
+            <div class="container">
+                <h2 class="section-title">Xizmatlar<span>imiz</span></h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                        <h3>Elektr tarmoqlarini o‘rnatish</h3>
+                        <p>Har qanday murakkablikdagi elektr tarmoqlarini loyihalash va o‘rnatish.</p>
+                        <div class="card-glow"></div>
+                    </div>
+                    <div class="service-card">
+                        <div class="card-icon"><i class="fas fa-tools"></i></div>
+                        <h3>Elektr jihozlarini ta’mirlash</h3>
+                        <p>Barcha turdagi elektr jihozlarining tezkor va sifatli ta’miri.</p>
+                        <div class="card-glow"></div>
+                    </div>
+                    <div class="service-card">
+                        <div class="card-icon"><i class="fas fa-cogs"></i></div>
+                        <h3>Texnik xizmat ko‘rsatish</h3>
+                        <p>Muntazam texnik xizmat ko‘rsatish va profaktik tadbirlar.</p>
+                        <div class="card-glow"></div>
+                    </div>
+                    <div class="service-card">
+                        <div class="card-icon"><i class="fas fa-robot"></i></div>
+                        <h3>Avtomatika va sensor tizimlar</h3>
+                        <p>Aqlli uy va ishlab chiqarish avtomatikasi tizimlarini o‘rnatish.</p>
+                        <div class="card-glow"></div>
+                    </div>
+                </div>
+            </div>
+            <canvas id="services3d"></canvas>
+        </section>
+
+        <!-- WHY US SECTION -->
+        <section class="why-us" id="why-us">
+            <div class="container">
+                <h2 class="section-title">Nima <span>Uchun Biz?</span></h2>
+                <div class="why-grid">
+                    <div class="why-item">
+                        <div class="why-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <h3>5+ yil tajriba</h3>
+                        <p>5 yildan ortiq ishonchli va muvaffaqiyatli tajriba.</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon"><i class="fas fa-users"></i></div>
+                        <h3>Professional mutaxassislar</h3>
+                        <p>Yuqori malakali va malakali muhandislar jamoasi.</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Kafolatlangan xizmat</h3>
+                        <p>Barcha ishlar uchun rasmiy kafolat va sertifikatlar.</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon"><i class="fas fa-rocket"></i></div>
+                        <h3>Tezkor va sifatli ish</h3>
+                        <p>Vaqtida va yuqori sifatli xizmatlar.</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h3>Zamonaviy texnologiyalar</h3>
+                        <p>Eng so‘nggi asboblar va texnologiyalar yordamida ish.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2 class="section-title">Aloqa <span>qilish</span></h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-info">
+                            <h3><i class="fas fa-building"></i> Korxona</h3>
+                            <p>Akmalbek Suyarov</p>
+                            <h3><i class="fas fa-phone"></i> Telefon</h3>
+                            <a href="tel:+998946820143" class="contact-link">+998 94 682 01 43</a>
+                            <h3><i class="fas fa-envelope"></i> Email</h3>
+                            <a href="mailto:Akmalboy0300030@gmail.com" class="contact-link">Akmalboy0300030@gmail.com</a>
+                        </div>
+                        <div class="contact-3d" id="contact3d">
+                            <!-- 3D Contact Card will be inserted here by JS -->
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-buttons">
+                    <a href="tel:+998946820143" class="btn-glow"><i class="fas fa-phone"></i> Qo‘ng‘iroq qilish</a>
+                    <a href="mailto:Akmalboy0300030@gmail.com" class="btn-glow"><i class="fas fa-envelope"></i> Email yuborish</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-lines">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="container">
+            <p>© 2026 <strong>ElektroServis</strong> | Akmalbek Suyarov</p>
+            <p class="footer-sub">Barcha elektr muammolariga professional yechim</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="script.js"></script>
+</body>
+</html>
